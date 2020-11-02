@@ -162,7 +162,7 @@ class Skin:
 	def parse_fonts(self):
 		self.fonts['HitCircleOverlap'] = iint(self.fonts.get('HitCircleOverlap', -2))
 		self.fonts['ScoreOverlap'] = iint(self.fonts.get('ScoreOverlap', -2))
-		self.fonts['ComboOverlap'] = iint(self.fonts.get('ScoreOverlap', -2))
+		self.fonts['ComboOverlap'] = iint(self.fonts.get('ComboOverlap', -2))
 
 		self.fonts['ComboPrefix'] = self.fonts.get('ComboPrefix', 'score')
 		self.fonts['ComboPrefix'] = self.fonts['ComboPrefix'].replace(" ", "")
