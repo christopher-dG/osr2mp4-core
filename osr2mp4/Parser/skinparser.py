@@ -9,22 +9,6 @@ from configparser import ConfigParser
 from osr2mp4 import logger
 
 
-def detect_comments(line):
-	ancient_char = ''
-	for k in range(len(line)):
-		if line[k] == '/' and ancient_char == '/':
-			return k
-		ancient_char = line[k]
-	return -1
-
-
-def del_comment(line):
-	i = detect_comments(line)
-	if i != -1:
-		line = line[: i - 1]
-	return line.strip()
-
-
 escape_dict = {'\a': '/a',
 			   '\b': '/b',
 			   '\c': '/c',
