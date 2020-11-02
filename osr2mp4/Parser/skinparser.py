@@ -9,30 +9,25 @@ from configparser import ConfigParser
 from osr2mp4 import logger
 
 
-escape_dict = {'\a': '/a',
-			   '\b': '/b',
-			   '\c': '/c',
-			   '\f': '/f',
-			   '\n': '/n',
-			   '\r': '/r',
-			   '\t': '/t',
-			   '\v': '/v',
-			   '\'': "/'",
-			   '\"': '/"',
-			   '\\': '/',
-			   ' ': '',
-			   '\ufeff': ''}
+escape_table = str.maketrans({
+	'\a': '/a',
+	'\b': '/b',
+	'\f': '/f',
+	'\n': '/n',
+	'\r': '/r',
+	'\t': '/t',
+	'\v': '/v',
+	'\'': "/'",
+	'\"': '/"',
+	'\\': '/',
+	' ': '',
+	'\ufeff': '',
+})
 
 
 def raw(text):
 	"""Returns a raw string representation of text"""
-	new_string = ''
-	for char in text:
-		try:
-			new_string += escape_dict[char]
-		except KeyError:
-			new_string += char
-	return new_string
+	return text.translate(escape_table)
 
 
 def iint(text):
